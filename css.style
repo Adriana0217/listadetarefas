@@ -1,0 +1,129 @@
+:root {
+  /* Cores */
+  --primary-color: #6e8efb;
+  --secondary-color: #a777e3;
+  --text-dark: #333;
+  --text-gray: gray;
+  --bg-light: #fff;
+  --bg-alt: #f1f1f1;
+  --bg-alt-hover: #e0e0e0;
+  --border-light: #ddd;
+  --danger-color: #ff5c5c;
+
+  /* Espaçamento e Borda */
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+
+  /* Sombra */
+  --shadow-base: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  /* Transições */
+  --transition-base: 0.3s ease;
+  --transition-fast: 0.2s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Melhor para o conteúdo não flutuar para o centro em telas grandes */
+  padding: var(--spacing-md);
+  margin: 0;
+}
+
+.container {
+  background: var(--bg-light);
+  padding: var(--spacing-lg) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-base);
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-dark);
+}
+
+.input-group { /* Agrupar input e botão para melhor controle de layout */
+  display: flex;
+  gap: var(--spacing-sm); /* Espaçamento entre input e botão */
+  align-items: center;
+}
+
+.input-group input[type="text"] { /* Seletor mais específico para input de texto */
+  flex-grow: 1; /* Permite que o input preencha o espaço disponível */
+  padding: var(--spacing-sm);
+  border: 2px solid var(--border-light);
+  border-radius: var(--border-radius-sm);
+  outline: none;
+  font-size: 16px;
+}
+
+.input-group button { /* Seletor mais geral para botões dentro do grupo */
+  padding: var(--spacing-sm) 15px;
+  background-color: var(--primary-color);
+  color: var(--bg-light);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background var(--transition-base);
+  flex-shrink: 0; /* Evita que o botão encolha */
+}
+
+.input-group button:hover {
+  background-color: #576fe6; /* Um tom ligeiramente mais escuro, se desejar */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px; /* Manter o espaçamento original */
+}
+
+li {
+  background: var(--bg-alt);
+  padding: 12px 16px; /* Manter o padding original */
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 12px; /* Manter o margin-bottom original */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background var(--transition-fast);
+}
+
+li:hover {
+  background: var(--bg-alt-hover);
+}
+
+.concluida {
+  text-decoration: line-through;
+  color: var(--text-gray);
+}
+
+li .delete-btn { /* Classe específica para o botão de deletar */
+  background: transparent;
+  border: none;
+  color: var(--danger-color);
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+  padding: 0; /* Remover padding padrão do botão */
+}
+
+li .delete-btn:hover {
+  transform: scale(1.2);
+}
